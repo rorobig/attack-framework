@@ -56,7 +56,10 @@ class TimestampController:
         :return: timestamp to be used for the next packet.
         """
         # get delay by pps
-        delay = 1 / self.pps
+        try:
+            delay = 1 / self.pps
+        except ZeroDivisionError:
+            delay = 0 
 
         if latency != 0:
             # Calculate reply timestamp

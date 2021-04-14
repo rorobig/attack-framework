@@ -454,6 +454,7 @@ class BaseAttack(metaclass=abc.ABCMeta):
         :return: 0 if request packet, 1 if reply packet, or 2 if packet was not added to packets
         """
         bytes = len(pkt)
+    
 
         remaining_bytes, current_interval = \
             self.bandwidth_controller.get_remaining_bandwidth(pkt.time, ip_source, ip_destination)
